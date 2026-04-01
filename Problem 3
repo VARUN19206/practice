@@ -1,0 +1,24 @@
+It is the solution to find is the given array is non decreasing array or not  
+EXAMPLE Input: [4, 2, 3]
+Output: true
+
+SOLUTION:
+class Solution {
+    public boolean nonDecreasingArray(int[] nums) {
+        int count=0;
+        int n=nums.length;
+        for(int i=1;i<n;i++){
+            if(nums[i]<nums[i-1]){
+                count++;
+                if(count>1){
+                    return false;
+
+                }
+                if(i>1 && nums[i]<nums[i-2]){
+                    nums[i]=nums[i-1];
+                }
+            }
+        }
+        return true;
+    }
+}
