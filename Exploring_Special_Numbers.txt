@@ -1,0 +1,85 @@
+In a math club, students are exploring interesting properties of numbers. One student comes across a unique class of numbers known as special numbers. A two-digit number is classified as a special number if the sum of its digits and the product of its digits equals the number itself.
+
+For example:
+
+For the number 22, the sum of digits is 2 + 2 = 4, and the product of digits is 2 * 2 = 4. The sum + product is 4 + 4 = 8, which is equal to the number itself (22).
+For the number 36, the sum of digits is 3 + 6 = 9, and the product of digits is 3 * 6 = 18. The sum + product is 9 + 18 = 27, which equals the number itself (36).
+Task: Write a program to identify all special numbers between two specified limits m and n (both inclusive), where m and n are two-digit numbers.
+
+Input Format
+
+A single line containing two integers m and 𝑛 separated by a space.
+𝑚 and n are two-digit integers, where 𝑚≤𝑛
+Constraints
+
+10 ≤ m ≤ 99
+10 ≤ n ≤ 99
+m ≤ n
+Output Format
+
+Print all special numbers between m and n (inclusive), separated by a space.
+If no special numbers exist in the given range, print "No special numbers".
+If the input is invalid (i.e., m and n are not two-digit numbers or m > n), print: "Invalid input! Please enter two-digit numbers with m <= n".
+Sample Input 0
+
+10 15
+Sample Output 0
+
+No special numbers
+Sample Input 1
+
+20 50
+Sample Output 1
+
+29 39 49
+Sample Input 2
+
+9 99
+Sample Output 2
+
+Invalid input! Please enter two-digit numbers with m <= n
+
+
+
+solution:
+
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        if(m<10||m>99||n<10||n>99||m>n){
+            System.out.println("Invalid input! Please enter two-digit numbers with m <= n");
+            return;
+        }
+        boolean found=false;
+        for(int num=m;num<=n;num++){
+            int tens=num/10;
+            int ones=num%10;
+            if(tens+ones+(tens*ones)==num){
+                if(found){
+                    System.out.print(" ");
+                }
+                System.out.print(num);
+                found=true;
+            }
+            
+        }
+        if(!found){
+                System.out.println("No special numbers");
+            }
+            else{
+                System.out.println();
+            }
+        
+    }
+}
